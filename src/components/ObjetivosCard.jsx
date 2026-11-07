@@ -1,25 +1,25 @@
-import React from 'react';
+import { motion } from "framer-motion";
 
-export default function ObjetivosCard({ competencia, indicadorLogro }) {
+export default function ObjetivosCard({ indicador, competencia }) {
     return (
-        <section style={{ 
-            backgroundColor: '#ffffff', 
-            padding: '1.5rem', 
-            borderRadius: '12px', 
-            marginBottom: '2rem',
-            border: '1px solid #e0e0e0',
-            borderLeft: '6px solid #1A237E', // Azul marino profundo en el borde izquierdo
-            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-        }}>
-            <h3 style={{ color: '#1A237E', marginTop: 0, marginBottom: '1rem', fontSize: '1.25rem' }}>
-                Metas de la Sesión
-            </h3>
-            <p style={{ margin: '0.5rem 0', color: '#333' }}>
-                <strong style={{ color: '#1A237E' }}>Competencia:</strong> {competencia}
-            </p>
-            <p style={{ margin: '0.5rem 0 0 0', color: '#333' }}>
-                <strong style={{ color: '#1A237E' }}>Indicador de Logro:</strong> {indicadorLogro}
-            </p>
-        </section>
+        <motion.div 
+            whileHover={{ scale: 1.02, translateY: -4 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            style={{ 
+                background: '#ffffff', 
+                borderLeft: '5px solid #e28743', 
+                border: '1px solid #cbd5e1',
+                padding: '18px', 
+                borderRadius: '8px', 
+                marginBottom: '15px', 
+                cursor: 'pointer',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+            }}
+        >
+            <h3 style={{ color: '#0f4c81', margin: '0 0 6px 0', fontSize: '1.1rem' }}>🎯 Indicador de Logro</h3>
+            <p style={{ margin: '0 0 10px 0', color: '#334155', fontWeight: 'bold' }}>{indicador}</p>
+            <p style={{ margin: 0, color: '#64748b', fontSize: '0.9em' }}><strong>Competencia:</strong> {competencia}</p>
+        </motion.div>
     );
 }

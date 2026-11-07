@@ -1,49 +1,31 @@
-import React from 'react';
-import HeaderClase from './components/HeaderClase';
-import ObjetivosCard from './components/ObjetivosCard';
-import ActividadItem from './components/ActividadItem';
+import HeaderClase from "./components/HeaderClase";
+import ObjetivosCard from "./components/ObjetivosCard";
+import ActividadItem from "./components/ActividadItem";
 
 export default function App() {
-    return (
-        <div style={{ 
-            fontFamily: 'system-ui, -apple-system, sans-serif', 
-            padding: '2.5rem 1.5rem', 
-            maxWidth: '900px', 
-            margin: '0 auto',
-            backgroundColor: '#F8F9FA',
-            minHeight: '100vh'
-        }}>
-            <HeaderClase 
-                tituloTema="Desarrollo de Componentes y Estado Local en React" 
-                nombreDocente="Delmy Gabriela Bajxac Cos" 
-                horario="07:30 - 09:00 hrs" 
-            />
+  return (
+    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px", fontFamily: "'Segoe UI', sans-serif" }}>
+      
+      {/* 1. Encabezado Animado */}
+      <HeaderClase 
+        tituloTema="Programación de Aplicaciones Web: Semana 6" 
+        horario="Sábados 7:00 - 9:20 AM" 
+      />
 
-            <ObjetivosCard 
-                competencia="Construye aplicaciones web modulares aplicando buenas prácticas de desarrollo frontend, componentes reutilizables y gestión de estado local." 
-                indicadorLogro="Estructura componentes en React con props y useState para integrar interactividad en interfaces educativas digitales." 
-            />
+      {/* 2. Tarjeta de Objetivos Interactiva */}
+      <ObjetivosCard 
+        indicador="Desarrolla componentes React reutilizables incorporando animaciones fluidas con Framer Motion." 
+        competencia="Dominar herramientas frontend modernas para el diseño de recursos educativos digitales." 
+      />
 
-            <h3 style={{ color: '#1A237E', margin: '2rem 0 1rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                📋 Secuencia Didáctica de la Clase
-            </h3>
+      {/* 3. Lista de Actividades de la Sesión */}
+      <h3 style={{ color: "#0f4c81", marginTop: "25px" }}>📋 Secuencia Didáctica de la Clase</h3>
+      
+      <ActividadItem titulo="1. Activación de presaberes con Trivia GIFT" tiempo="5 min" />
+      <ActividadItem titulo="2. Taller Guiado: Instalación de NPM y package.json" tiempo="25 min" />
+      <ActividadItem titulo="3. Laboratorio de Animaciones con Framer Motion" tiempo="25 min" />
+      <ActividadItem titulo="4. Pair Programming: Integración en Proyecto Integrador" tiempo="35 min" />
 
-            <ActividadItem 
-                tituloActividad="Paso 1.1: Lectura reflexiva sobre Componentes Funcionales" 
-                duracion="15 min" 
-            />
-            <ActividadItem 
-                tituloActividad="Paso 1.2: Auditoría y Prompting con Inteligencia Artificial" 
-                duracion="20 min" 
-            />
-            <ActividadItem 
-                tituloActividad="Paso 1.3: Configuración de carpeta components/ y componentes JSX" 
-                duracion="35 min" 
-            />
-            <ActividadItem 
-                tituloActividad="Paso 1.4: Integración del Hook useState para dinamismo" 
-                duracion="20 min" 
-            />
-        </div>
-    );
+    </div>
+  );
 }
