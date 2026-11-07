@@ -3,23 +3,28 @@ import { motion } from "framer-motion";
 export default function ObjetivosCard({ indicador, competencia }) {
     return (
         <motion.div 
-            whileHover={{ scale: 1.02, translateY: -4 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
             style={{ 
                 background: '#ffffff', 
-                borderLeft: '5px solid #e28743', 
-                border: '1px solid #cbd5e1',
-                padding: '18px', 
+                borderLeft: '5px solid #4A148C', 
+                border: '1px solid #e2e8f0',
+                padding: '1.5rem', 
                 borderRadius: '8px', 
-                marginBottom: '15px', 
-                cursor: 'pointer',
-                boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+                marginBottom: '1.5rem', 
+                boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
             }}
         >
-            <h3 style={{ color: '#0f4c81', margin: '0 0 6px 0', fontSize: '1.1rem' }}>🎯 Indicador de Logro</h3>
-            <p style={{ margin: '0 0 10px 0', color: '#334155', fontWeight: 'bold' }}>{indicador}</p>
-            <p style={{ margin: 0, color: '#64748b', fontSize: '0.9em' }}><strong>Competencia:</strong> {competencia}</p>
+            <h3 style={{ color: '#1A237E', margin: '0 0 8px 0', fontSize: '1.15rem', fontWeight: '600' }}>
+                Metas de Aprendizaje
+            </h3>
+            <p style={{ margin: '0 0 10px 0', color: '#1e293b', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                <strong>Indicador de Logro:</strong> {indicador}
+            </p>
+            <p style={{ margin: 0, color: '#475569', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                <strong>Competencia:</strong> {competencia}
+            </p>
         </motion.div>
     );
 }

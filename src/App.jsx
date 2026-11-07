@@ -1,31 +1,47 @@
-import HeaderClase from "./components/HeaderClase";
-import ObjetivosCard from "./components/ObjetivosCard";
-import ActividadItem from "./components/ActividadItem";
+import HeaderClase from './components/HeaderClase';
+import ObjetivosCard from './components/ObjetivosCard';
+import ActividadItem from './components/ActividadItem';
 
 export default function App() {
-  return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px", fontFamily: "'Segoe UI', sans-serif" }}>
-      
-      {/* 1. Encabezado Animado */}
-      <HeaderClase 
-        tituloTema="Programación de Aplicaciones Web: Semana 6" 
-        horario="Sábados 7:00 - 9:20 AM" 
-      />
+    return (
+        <main style={{ 
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif', 
+            padding: '2.5rem 1.5rem', 
+            maxWidth: '850px', 
+            margin: '0 auto',
+            backgroundColor: '#f8fafc',
+            minHeight: '100vh'
+        }}>
+            <HeaderClase 
+                tituloTema="Ciudadanía Digital y Seguridad en Internet" 
+                horario="07:30 - 09:00 hrs" 
+            />
 
-      {/* 2. Tarjeta de Objetivos Interactiva */}
-      <ObjetivosCard 
-        indicador="Desarrolla componentes React reutilizables incorporando animaciones fluidas con Framer Motion." 
-        competencia="Dominar herramientas frontend modernas para el diseño de recursos educativos digitales." 
-      />
+            <ObjetivosCard 
+                indicador="Analice los riesgos asociados al uso de redes sociales y aplique medidas formales para la protección de sus datos personales y ciberseguridad." 
+                competencia="Utilice herramientas tecnológicas de manera segura, responsable y ética, respetando la privacidad propia y ajena en entornos digitales educativos." 
+            />
 
-      {/* 3. Lista de Actividades de la Sesión */}
-      <h3 style={{ color: "#0f4c81", marginTop: "25px" }}>📋 Secuencia Didáctica de la Clase</h3>
-      
-      <ActividadItem titulo="1. Activación de presaberes con Trivia GIFT" tiempo="5 min" />
-      <ActividadItem titulo="2. Taller Guiado: Instalación de NPM y package.json" tiempo="25 min" />
-      <ActividadItem titulo="3. Laboratorio de Animaciones con Framer Motion" tiempo="25 min" />
-      <ActividadItem titulo="4. Pair Programming: Integración en Proyecto Integrador" tiempo="35 min" />
+            <h2 style={{ color: '#1A237E', fontSize: '1.2rem', margin: '2rem 0 1rem 0', fontWeight: '700' }}>
+                Secuencia Didáctica para el Alumno
+            </h2>
 
-    </div>
-  );
+            <ActividadItem 
+                titulo="Fase 1: Analice su identidad digital y su huella en la red" 
+                tiempo="15 minutos" 
+            />
+            <ActividadItem 
+                titulo="Fase 2: Identifique amenazas, ciberacoso y riesgos de navegación" 
+                tiempo="25 minutos" 
+            />
+            <ActividadItem 
+                titulo="Fase 3: Complete el taller práctico de contraseñas seguras y verificación" 
+                tiempo="30 minutos" 
+            />
+            <ActividadItem 
+                titulo="Fase 4: Valide sus conclusiones sobre buenas prácticas de convivencia digital" 
+                tiempo="20 minutos" 
+            />
+        </main>
+    );
 }
