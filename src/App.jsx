@@ -1,47 +1,72 @@
-import HeaderClase from './components/HeaderClase';
-import ObjetivosCard from './components/ObjetivosCard';
-import ActividadItem from './components/ActividadItem';
+import { motion } from 'framer-motion';
+import ListaActividades from './components/ListaActividades';
 
 export default function App() {
-    return (
-        <main style={{ 
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif', 
-            padding: '2.5rem 1.5rem', 
-            maxWidth: '850px', 
-            margin: '0 auto',
-            backgroundColor: '#f8fafc',
-            minHeight: '100vh'
+  return (
+    <main style={{ 
+      maxWidth: '850px', 
+      margin: '2.5rem auto', 
+      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+      padding: '0 1rem',
+      color: '#1e293b'
+    }}>
+      {/* Encabezado formal */}
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        style={{ 
+          background: 'linear-gradient(135deg, #4A148C, #1A237E)', 
+          color: '#ffffff', 
+          padding: '2rem', 
+          borderRadius: '8px', 
+          textAlign: 'center',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          marginBottom: '1.5rem'
+        }}
+      >
+        <span style={{ 
+          textTransform: 'uppercase', 
+          letterSpacing: '1.5px', 
+          fontSize: '0.75rem', 
+          background: 'rgba(255, 255, 255, 0.15)', 
+          padding: '4px 10px', 
+          borderRadius: '4px',
+          fontWeight: '600'
         }}>
-            <HeaderClase 
-                tituloTema="Ciudadanía Digital y Seguridad en Internet" 
-                horario="07:30 - 09:00 hrs" 
-            />
+          Tecnología | Segundo Grado Básico | CNB MINEDUC
+        </span>
+        <h1 style={{ margin: '12px 0 6px 0', fontSize: '1.7rem', fontWeight: '700' }}>
+          Ciudadanía Digital y Seguridad en Internet
+        </h1>
+        <p style={{ margin: 0, opacity: 0.9, fontSize: '0.95rem' }}>
+          Plan de Clase Digital Interactivo con Persistencia en la Nube
+        </p>
+      </motion.header>
 
-            <ObjetivosCard 
-                indicador="Analice los riesgos asociados al uso de redes sociales y aplique medidas formales para la protección de sus datos personales y ciberseguridad." 
-                competencia="Utilice herramientas tecnológicas de manera segura, responsable y ética, respetando la privacidad propia y ajena en entornos digitales educativos." 
-            />
+      {/* Tarjeta de Metas */}
+      <section style={{ 
+        background: '#ffffff', 
+        borderLeft: '5px solid #4A148C', 
+        border: '1px solid #e2e8f0',
+        padding: '1.5rem', 
+        borderRadius: '8px', 
+        marginBottom: '1.5rem', 
+        boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+      }}>
+        <h3 style={{ color: '#1A237E', margin: '0 0 8px 0', fontSize: '1.15rem', fontWeight: '600' }}>
+          Metas de Aprendizaje
+        </h3>
+        <p style={{ margin: '0 0 10px 0', fontSize: '0.95rem', lineHeight: '1.5' }}>
+          <strong>Indicador de Logro:</strong> Analice los riesgos asociados al uso de redes sociales y aplique medidas formales para la protección de sus datos personales y ciberseguridad.
+        </p>
+        <p style={{ margin: 0, color: '#475569', fontSize: '0.9rem', lineHeight: '1.5' }}>
+          <strong>Competencia:</strong> Utilice herramientas tecnológicas de manera segura, responsable y ética, respetando la privacidad propia y ajena en entornos digitales educativos.
+        </p>
+      </section>
 
-            <h2 style={{ color: '#1A237E', fontSize: '1.2rem', margin: '2rem 0 1rem 0', fontWeight: '700' }}>
-                Secuencia Didáctica para el Alumno
-            </h2>
-
-            <ActividadItem 
-                titulo="Fase 1: Analice su identidad digital y su huella en la red" 
-                tiempo="15 minutos" 
-            />
-            <ActividadItem 
-                titulo="Fase 2: Identifique amenazas, ciberacoso y riesgos de navegación" 
-                tiempo="25 minutos" 
-            />
-            <ActividadItem 
-                titulo="Fase 3: Complete el taller práctico de contraseñas seguras y verificación" 
-                tiempo="30 minutos" 
-            />
-            <ActividadItem 
-                titulo="Fase 4: Valide sus conclusiones sobre buenas prácticas de convivencia digital" 
-                tiempo="20 minutos" 
-            />
-        </main>
-    );
+      {/* Componente Dinámico Conectado a NocoDB */}
+      <ListaActividades />
+    </main>
+  );
 }
