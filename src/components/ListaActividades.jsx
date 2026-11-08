@@ -5,7 +5,6 @@ export default function ListaActividades() {
   const [actividades, setActividades] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  // URL del endpoint v1 que utiliza directamente tu base de datos y tabla
   const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
@@ -19,7 +18,6 @@ export default function ListaActividades() {
     })
       .then(respuesta => respuesta.json())
       .then(datos => {
-        // Soporte para arreglos devueltos en formatos .list o .records o directamente
         const registros = Array.isArray(datos) ? datos : (datos.list || datos.records || []);
         setActividades(registros);
         setCargando(false);
