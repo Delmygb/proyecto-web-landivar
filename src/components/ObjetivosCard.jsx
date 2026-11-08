@@ -1,30 +1,45 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-export default function ObjetivosCard({ indicador, competencia }) {
-    return (
-        <motion.div 
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            style={{ 
-                background: '#ffffff', 
-                borderLeft: '5px solid #4A148C', 
-                border: '1px solid #e2e8f0',
-                padding: '1.5rem', 
-                borderRadius: '8px', 
-                marginBottom: '1.5rem', 
-                boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
-            }}
-        >
-            <h3 style={{ color: '#1A237E', margin: '0 0 8px 0', fontSize: '1.15rem', fontWeight: '600' }}>
-                Metas de Aprendizaje
-            </h3>
-            <p style={{ margin: '0 0 10px 0', color: '#1e293b', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                <strong>Indicador de Logro:</strong> {indicador}
-            </p>
-            <p style={{ margin: 0, color: '#475569', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                <strong>Competencia:</strong> {competencia}
-            </p>
-        </motion.div>
-    );
+export default function ObjetivosCard() {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      style={{ 
+        background: '#ffffff', 
+        borderRadius: '12px', 
+        border: '1px solid #e2e8f0', 
+        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
+        padding: '1.5rem',
+        marginBottom: '1.5rem'
+      }}
+    >
+      <h3 style={{ 
+        color: '#31105c', // Morado original de la cabecera
+        marginTop: 0, 
+        marginBottom: '1rem', 
+        fontSize: '1.25rem', 
+        fontWeight: '700',
+        textAlign: 'center' 
+      }}>
+        Metas de Aprendizaje
+      </h3>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', color: '#1e293b', fontSize: '0.95rem' }}>
+        <div>
+          <span style={{ fontWeight: '600', color: '#475569' }}>Indicador de Logro:</span>{' '}
+          <span style={{ color: '#334155' }}>
+            Analiza de forma crítica los riesgos y responsabilidades asociados al uso de la tecnología y redes sociales en su entorno digital.
+          </span>
+        </div>
+
+        <div>
+          <span style={{ fontWeight: '600', color: '#475569' }}>Competencia:</span>{' '}
+          <span style={{ color: '#334155' }}>
+            Promueve prácticas seguras, éticas y responsables de ciudadanía digital en el manejo de información y herramientas tecnológicas.
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
 }
