@@ -7,7 +7,7 @@ export default function App() {
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', fontFamily: 'sans-serif', background: '#f8fafc', minHeight: '100vh' }}>
       <HeaderClase />
       
-      {/* Colocado literalmente al inicio */}
+      {/* Debe ir primero obligatoriamente */}
       <ObjetivosCard />
       
       <ListaActividades />

@@ -6,12 +6,12 @@ export default function ObjetivosCard() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       style={{ 
-        background: '#2b0f54', // Morado intenso
+        background: '#411c75', // Morado más claro y vivo
         borderRadius: '12px', 
-        overflow: 'hidden', // Para que la línea superior respete los bordes redondeados
+        overflow: 'hidden', 
         boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
         marginBottom: '1.5rem',
-        border: '1px solid #3b146e'
+        border: '1px solid #522594'
       }}
     >
       {/* Línea superior decorativa en color amarillo mostaza / beige */}
@@ -24,25 +24,25 @@ export default function ObjetivosCard() {
           marginBottom: '1rem', 
           fontSize: '1.35rem', 
           fontWeight: '700',
-          textAlign: 'center',
+          textAlign: 'center', // Título centrado
           letterSpacing: '0.5px'
         }}>
           Metas de Aprendizaje
         </h3>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', color: '#f8fafc', fontSize: '0.95rem', lineHeight: '1.5' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', color: '#f8fafc', fontSize: '0.95rem', lineHeight: '1.6' }}>
           <div>
-            <strong style={{ color: '#fde047', display: 'block', marginBottom: '2px' }}>Indicador de Logro:</strong>
-            <span style={{ color: '#e2e8f0' }}>
+            <strong style={{ color: '#fde047', display: 'block', marginBottom: '3px', textAlign: 'center' }}>Indicador de Logro:</strong>
+            <p style={{ textAlign: 'justify', margin: 0, color: '#f1f5f9' }}>
               Analiza de forma crítica los riesgos y responsabilidades asociados al uso de la tecnología y redes sociales en su entorno digital.
-            </span>
+            </p>
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '10px' }}>
-            <strong style={{ color: '#fde047', display: 'block', marginBottom: '2px' }}>Competencia:</strong>
-            <span style={{ color: '#e2e8f0' }}>
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '12px' }}>
+            <strong style={{ color: '#fde047', display: 'block', marginBottom: '3px', textAlign: 'center' }}>Competencia:</strong>
+            <p style={{ textAlign: 'justify', margin: 0, color: '#f1f5f9' }}>
               Promueve prácticas seguras, éticas y responsables de ciudadanía digital en el manejo de información y herramientas tecnológicas.
-            </span>
+            </p>
           </div>
         </div>
       </div>
