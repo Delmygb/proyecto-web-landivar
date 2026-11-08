@@ -5,7 +5,8 @@ export default function ListaActividades() {
   const [actividades, setActividades] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
+  // URL correcta utilizando el endpoint REST v2 de NocoDB
+  const NOCODB_URL = 'https://app.nocodb.com/api/v2/tables/actividades-actividades/records';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function ListaActividades() {
     })
       .then(respuesta => respuesta.json())
       .then(datos => {
-        const registros = datos.records || datos.list || [];
+        const registros = datos.list || datos.records || [];
         setActividades(registros);
         setCargando(false);
       })
@@ -46,15 +47,14 @@ export default function ListaActividades() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {actividades.map((item, index) => {
-            const campos = item.fields || item;
-            const titulo = campos.Titulo || campos.titulo || campos.Title || campos.title || 'Sin título';
-            const duracion = campos.Duracion || campos.duracion || campos.Duration || campos.duration || 0;
-            const categoria = campos.Categoria || campos.categoria || campos.Category || campos.category || 'General';
-            const completado = campos.Completo !== undefined ? campos.Completo : (campos.completo || false);
+            const titulo = item.Titulo || item.titulo || item.Title || 'Sin título';
+            const duracion = item.Duracion || item.duracion || 0;
+            const categoria = item.Categoria || item.categoria || 'General';
+            const completado = item.Completo !== undefined ? item.Completo : false;
 
             return (
               <motion.div 
-                key={item.id || index}
+                key={item.Id || item.id || index}
                 whileHover={{ scale: 1.01 }}
                 style={{
                   display: 'flex',
