@@ -5,8 +5,8 @@ export default function ListaActividades() {
   const [actividades, setActividades] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  // URL correcta utilizando el endpoint REST v2 de NocoDB
-  const NOCODB_URL = 'https://app.nocodb.com/api/v2/tables/actividades-actividades/records';
+  // URL del endpoint v1 que utiliza directamente tu base de datos y tabla
+  const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
   useEffect(() => {
@@ -19,7 +19,8 @@ export default function ListaActividades() {
     })
       .then(respuesta => respuesta.json())
       .then(datos => {
-        const registros = datos.list || datos.records || [];
+        // Soporte para arreglos devueltos en formatos .list o .records o directamente
+        const registros = Array.isArray(datos) ? datos : (datos.list || datos.records || []);
         setActividades(registros);
         setCargando(false);
       })
@@ -50,7 +51,7 @@ export default function ListaActividades() {
             const titulo = item.Titulo || item.titulo || item.Title || 'Sin título';
             const duracion = item.Duracion || item.duracion || 0;
             const categoria = item.Categoria || item.categoria || 'General';
-            const completado = item.Completo !== undefined ? item.Completo : false;
+            const completado = item.Completo !== undefined ? Boolean(item.Completo) : false;
 
             return (
               <motion.div 
