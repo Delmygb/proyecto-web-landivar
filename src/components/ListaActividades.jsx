@@ -5,6 +5,7 @@ export default function ListaActividades() {
   const [actividades, setActividades] = useState([]);
   const [cargando, setCargando] = useState(true);
 
+  // Endpoint corregido para NocoDB Cloud v1
   const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
@@ -18,7 +19,14 @@ export default function ListaActividades() {
     })
       .then(respuesta => respuesta.json())
       .then(datos => {
-        const registros = Array.isArray(datos) ? datos : (datos.list || datos.records || []);
+        // Imprimimos en la consola del navegador (F12) lo que responde NocoDB para depurar
+        console.log('Respuesta de NocoDB:', datos);
+
+        // Extraemos los registros sin importar si vienen en .list, .records o como un arreglo directo
+        const registros = Array.isArray(datos) 
+          ? datos 
+          : (datos.list || datos.records || datos.data || []);
+          
         setActividades(registros);
         setCargando(false);
       })
@@ -46,10 +54,12 @@ export default function ListaActividades() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {actividades.map((item, index) => {
-            const titulo = item.Titulo || item.titulo || item.Title || 'Sin título';
-            const duracion = item.Duracion || item.duracion || 0;
-            const categoria = item.Categoria || item.categoria || 'General';
-            const completado = item.Completo !== undefined ? Boolean(item.Completo) : false;
+            // Soportamos tanto si los campos vienen sueltos como dentro de un objeto .fields
+            const campos = item.fields || item;
+            const titulo = campos.Titulo || campos.titulo || campos.Title || campos.title || 'Sin título';
+            const duracion = campos.Duracion || campos.duracion || campos.Duration || campos.duration || 0;
+            const categoria = campos.Categoria || campos.categoria || campos.Category || campos.category || 'General';
+            const completado = campos.Completo !== undefined ? Boolean(campos.Completo) : (campos.completo || false);
 
             return (
               <motion.div 
