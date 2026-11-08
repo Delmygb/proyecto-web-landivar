@@ -6,7 +6,7 @@ export default function ListaActividades() {
   const [cargando, setCargando] = useState(true);
 
   // Endpoint oficial corregido con la ruta completa de NocoDB Cloud
-  const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/actividades-actividades';
+const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
   useEffect(() => {
