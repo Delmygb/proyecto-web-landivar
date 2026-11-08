@@ -5,8 +5,8 @@ export default function ListaActividades() {
   const [actividades, setActividades] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  // Endpoint corregido para NocoDB Cloud v1
-  const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/Actividades';
+  // Endpoint oficial corregido con la ruta completa de NocoDB Cloud
+  const NOCODB_URL = 'https://app.nocodb.com/api/v1/db/data/v1/parhbek53utr4u1/actividades-actividades';
   const API_TOKEN = 'nc_pat_FasrCh7bSAjBltkCwHilDiDyQGVB09LtLPGnY6SE';
 
   useEffect(() => {
@@ -19,14 +19,7 @@ export default function ListaActividades() {
     })
       .then(respuesta => respuesta.json())
       .then(datos => {
-        // Imprimimos en la consola del navegador (F12) lo que responde NocoDB para depurar
-        console.log('Respuesta de NocoDB:', datos);
-
-        // Extraemos los registros sin importar si vienen en .list, .records o como un arreglo directo
-        const registros = Array.isArray(datos) 
-          ? datos 
-          : (datos.list || datos.records || datos.data || []);
-          
+        const registros = Array.isArray(datos) ? datos : (datos.list || datos.records || datos.data || []);
         setActividades(registros);
         setCargando(false);
       })
@@ -54,7 +47,6 @@ export default function ListaActividades() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {actividades.map((item, index) => {
-            // Soportamos tanto si los campos vienen sueltos como dentro de un objeto .fields
             const campos = item.fields || item;
             const titulo = campos.Titulo || campos.titulo || campos.Title || campos.title || 'Sin título';
             const duracion = campos.Duracion || campos.duracion || campos.Duration || campos.duration || 0;
