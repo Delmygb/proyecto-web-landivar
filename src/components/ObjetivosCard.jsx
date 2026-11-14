@@ -1,12 +1,13 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function ObjetivosCard() {
+export default function ObjetivosCard({ competencia, indicadorLogro }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       style={{ 
-        background: '#411c75', // Morado más claro y vivo
+        background: '#411c75', 
         borderRadius: '12px', 
         overflow: 'hidden', 
         boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
@@ -14,7 +15,6 @@ export default function ObjetivosCard() {
         border: '1px solid #522594'
       }}
     >
-      {/* Línea superior decorativa en color amarillo mostaza / beige */}
       <div style={{ height: '6px', background: '#e6c547', width: '100%' }} />
 
       <div style={{ padding: '1.5rem' }}>
@@ -24,7 +24,7 @@ export default function ObjetivosCard() {
           marginBottom: '1rem', 
           fontSize: '1.35rem', 
           fontWeight: '700',
-          textAlign: 'center', // Título centrado
+          textAlign: 'center',
           letterSpacing: '0.5px'
         }}>
           Metas de Aprendizaje
@@ -34,14 +34,14 @@ export default function ObjetivosCard() {
           <div>
             <strong style={{ color: '#fde047', display: 'block', marginBottom: '3px', textAlign: 'center' }}>Indicador de Logro:</strong>
             <p style={{ textAlign: 'justify', margin: 0, color: '#f1f5f9' }}>
-              Analiza de forma crítica los riesgos y responsabilidades asociados al uso de la tecnología y redes sociales en su entorno digital.
+              {indicadorLogro || "Analiza de forma crítica los riesgos y responsabilidades asociados al uso de la tecnología y redes sociales en su entorno digital."}
             </p>
           </div>
 
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '12px' }}>
             <strong style={{ color: '#fde047', display: 'block', marginBottom: '3px', textAlign: 'center' }}>Competencia:</strong>
             <p style={{ textAlign: 'justify', margin: 0, color: '#f1f5f9' }}>
-              Promueve prácticas seguras, éticas y responsables de ciudadanía digital en el manejo de información y herramientas tecnológicas.
+              {competencia || "Promueve prácticas seguras, éticas y responsables de ciudadanía digital en el manejo de información y herramientas tecnológicas."}
             </p>
           </div>
         </div>

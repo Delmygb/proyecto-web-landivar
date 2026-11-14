@@ -1,86 +1,58 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function ListaActividades() {
-  // Lista inicial con el estado de completado interactivo
-  const [actividades, setActividades] = useState([
-    { id: 1, Titulo: 'Fase 1: Analice su identidad digital y su huella en la red', Duracion: 15, Categoria: 'Identidad Digital', Completo: false },
-    { id: 2, Titulo: 'Fase 2: Identifique amenazas, ciberacoso y riesgos de navegación', Duracion: 25, Categoria: 'Ciberseguridad', Completo: false },
-    { id: 3, Titulo: 'Fase 3: Complete el taller práctico de contraseñas seguras y verificación', Duracion: 30, Categoria: 'Privacidad', Completo: false },
-    { id: 4, Titulo: 'Fase 4: Valide sus conclusiones sobre buenas prácticas de convivencia digital', Duracion: 20, Categoria: 'Convivencia Digital', Completo: false }
-  ]);
-
-  // Función para alternar el estado de completado al hacer clic en el botón
-  const toggleCompletado = (id) => {
-    setActividades(actividades.map(act => 
-      act.id === id ? { ...act, Completo: !act.Completo } : act
-    ));
-  };
-
+export default function HeaderClase() {
   return (
-    <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-      <h3 style={{ color: '#1A237E', marginTop: 0, marginBottom: '1.25rem', fontSize: '1.25rem', fontWeight: '700', textAlign: 'center' }}>
-        Secuencia Didáctica para el Alumno
-      </h3>
-      
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {actividades.map((item) => {
-          const completado = item.Completo;
+    <motion.header 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ 
+        backgroundColor: '#411c75', 
+        color: '#ffffff', 
+        padding: '2rem', 
+        borderRadius: '12px', 
+        marginBottom: '1.5rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        border: '1px solid #522594'
+      }}
+    >
+      {/* Título principal en color amarillo destacado */}
+      <h1 style={{ 
+        margin: '0 0 1.25rem 0', 
+        fontSize: '1.65rem', 
+        fontWeight: '700', 
+        textAlign: 'center',
+        color: '#fde047',
+        letterSpacing: '0.5px'
+      }}>
+        Ciudadanía Digital y Seguridad en Internet
+      </h1>
 
-          return (
-            <motion.div 
-              key={item.id}
-              whileHover={{ scale: 1.01 }}
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '16px 20px',
-                background: completado ? '#f0fdf4' : '#ffffff',
-                border: completado ? '1px solid #bbf7d0' : '1px solid #e2e8f0',
-                borderRadius: '8px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              <div style={{ paddingRight: '15px' }}>
-                <span style={{ 
-                  display: 'block', 
-                  fontWeight: '600', 
-                  color: completado ? '#166534' : '#1e293b',
-                  fontSize: '1rem',
-                  marginBottom: '4px',
-                  textDecoration: completado ? 'line-through' : 'none'
-                }}>
-                  {item.Titulo}
-                </span>
-                <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                  Tiempo estimado: {item.Duracion} minutos — <span style={{ color: '#3b82f6', fontWeight: '500' }}>[{item.Categoria}]</span>
-                </span>
-              </div>
-
-              <button
-                onClick={() => toggleCompletado(item.id)}
-                style={{
-                  background: completado ? '#16a34a' : '#1e1b4b',
-                  color: '#ffffff',
-                  border: 'none',
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                  transition: 'background 0.2s'
-                }}
-              >
-                {completado ? 'Completado ✓' : 'Marcar su avance'}
-              </button>
-            </motion.div>
-          );
-        })}
+      {/* Datos del docente alineados */}
+      <div style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '0.95rem' }}>
+        <span><strong>Docente:</strong> Prof.ª Delmy Bajxac</span>
       </div>
-    </div>
+
+      {/* Horario y sección estructurados en formato tipo tabla formal */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: '1fr 1fr', 
+        gap: '10px', 
+        maxWidth: '450px', 
+        margin: '0 auto',
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+        padding: '10px 15px',
+        borderRadius: '8px',
+        fontSize: '0.9rem',
+        border: '1px solid rgba(255, 255, 255, 0.15)'
+      }}>
+        <div style={{ textAlign: 'right', paddingRight: '10px', borderRight: '1px solid rgba(255,255,255,0.2)' }}>
+          <strong>Horario:</strong> Sábados 07:00 AM
+        </div>
+        <div style={{ paddingLeft: '10px' }}>
+          <strong>Sección:</strong> Segundo Básico A-B-C
+        </div>
+      </div>
+    </motion.header>
   );
 }
