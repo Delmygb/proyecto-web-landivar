@@ -131,19 +131,19 @@ export default function ListaActividades() {
           Fase 1: Identidad Digital y Huella en la Red
         </h4>
 
-        {/* Banco de Material de Apoyo */}
+        {/* Banco de Material de Apoyo con Enlaces Reales */}
         <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '8px', border: '1px solid #7dd3fc', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#0891b2', margin: '0 0 8px 0' }}>Banco de material de apoyo para el estudiante:</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', fontWeight: 'bold' }}>
-              Guía de Convivencia (Págs. 16-57)
-            </span>
-            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href="https://www.unicef.org/argentina/media/9481/file/Gu%C3%ADa%20sobre%20Convivencia%20Digital-2020.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía de Convivencia UNICEF
+            </a>
+            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
               Video Explicativo en YouTube
             </a>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', fontWeight: 'bold' }}>
-              Guía de Convivencia en Adolescencia
-            </span>
+            <a href="https://www.unicef.org/argentina/media/26526/file/GUIA%20de%20Convivencia%20Digital%20en%20la%20Adolescencia.pdf.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#f0fdfa', border: '1px solid #7dd3fc', borderRadius: '6px', fontSize: '0.8rem', color: '#0891b2', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía en la Adolescencia
+            </a>
           </div>
         </div>
         
@@ -222,19 +222,19 @@ export default function ListaActividades() {
           )}
         </div>
 
-        {/* Banco de Material de Apoyo */}
+        {/* Banco de Material de Apoyo con Enlaces Reales */}
         <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '8px', border: '1px solid #fde047', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#ca8a04', margin: '0 0 8px 0' }}>Banco de material de apoyo para el estudiante:</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', fontWeight: 'bold' }}>
-              Guía de Convivencia (Págs. 16-57)
-            </span>
-            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href="https://www.unicef.org/argentina/media/9481/file/Gu%C3%ADa%20sobre%20Convivencia%20Digital-2020.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía de Convivencia UNICEF
+            </a>
+            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
               Video Explicativo en YouTube
             </a>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', fontWeight: 'bold' }}>
-              Guía de Convivencia en Adolescencia
-            </span>
+            <a href="https://www.unicef.org/argentina/media/26526/file/GUIA%20de%20Convivencia%20Digital%20en%20la%20Adolescencia.pdf.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fefce8', border: '1px solid #fde047', borderRadius: '6px', fontSize: '0.8rem', color: '#ca8a04', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía en la Adolescencia
+            </a>
           </div>
         </div>
 
@@ -303,19 +303,19 @@ export default function ListaActividades() {
           )}
         </div>
 
-        {/* Banco de Material de Apoyo */}
+        {/* Banco de Material de Apoyo con Enlaces Reales */}
         <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '8px', border: '1px solid #d8b4fe', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#411c75', margin: '0 0 8px 0' }}>Banco de material de apoyo para el estudiante:</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', fontWeight: 'bold' }}>
-              Guía de Convivencia (Págs. 16-57)
-            </span>
-            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href="https://www.unicef.org/argentina/media/9481/file/Gu%C3%ADa%20sobre%20Convivencia%20Digital-2020.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía de Convivencia UNICEF
+            </a>
+            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
               Video Explicativo en YouTube
             </a>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', fontWeight: 'bold' }}>
-              Guía de Convivencia en Adolescencia
-            </span>
+            <a href="https://www.unicef.org/argentina/media/26526/file/GUIA%20de%20Convivencia%20Digital%20en%20la%20Adolescencia.pdf.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#faf5ff', border: '1px solid #d8b4fe', borderRadius: '6px', fontSize: '0.8rem', color: '#411c75', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía en la Adolescencia
+            </a>
           </div>
         </div>
 
@@ -331,7 +331,7 @@ export default function ListaActividades() {
           Para mitigar estas vulnerabilidades, resulta indispensable instruir a los estudiantes en la creación de frases de paso robustas que integren caracteres alfanuméricos y símbolos especiales. La adopción de estas medidas técnicas previene la usurpación de identidad y garantiza un control adecuado sobre los espacios virtuales personales e institucionales (García & Martínez, 2022).
         </p>
 
-        {/* Lista de 10 ejemplos SIN color verde de fondo, solo contorno amarillo en los cuadritos */}
+        {/* Lista de 10 ejemplos */}
         <div style={{ background: '#ffffff', padding: '1.25rem', borderRadius: '8px', border: '1px solid #d8b4fe', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#411c75', marginTop: 0, marginBottom: '0.5rem' }}>
             Criterios clave para una contraseña segura:
@@ -435,19 +435,19 @@ export default function ListaActividades() {
           )}
         </div>
 
-        {/* Banco de Material de Apoyo */}
+        {/* Banco de Material de Apoyo con Enlaces Reales */}
         <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '8px', border: '1px solid #fdba74', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#c2410c', margin: '0 0 8px 0' }}>Banco de material de apoyo para el estudiante:</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', fontWeight: 'bold' }}>
-              Guía de Convivencia (Págs. 16-57)
-            </span>
-            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href="https://www.unicef.org/argentina/media/9481/file/Gu%C3%ADa%20sobre%20Convivencia%20Digital-2020.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía de Convivencia UNICEF
+            </a>
+            <a href="https://youtu.be/CUxxV-v0rYg" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
               Video Explicativo en YouTube
             </a>
-            <span style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', fontWeight: 'bold' }}>
-              Guía de Convivencia en Adolescencia
-            </span>
+            <a href="https://www.unicef.org/argentina/media/26526/file/GUIA%20de%20Convivencia%20Digital%20en%20la%20Adolescencia.pdf.pdf" target="_blank" rel="noreferrer" style={{ display: 'block', padding: '8px 12px', background: '#fffbeb', border: '1px solid #fdba74', borderRadius: '6px', fontSize: '0.8rem', color: '#c2410c', textDecoration: 'none', fontWeight: 'bold', textAlign: 'center' }}>
+              Guía en la Adolescencia
+            </a>
           </div>
         </div>
 
@@ -507,7 +507,7 @@ export default function ListaActividades() {
           )}
         </div>
 
-        {/* Bloque de preguntas reflexivas solicitadas */}
+        {/* Bloque de preguntas reflexivas */}
         <div style={{ background: '#ffffff', padding: '1.25rem', borderRadius: '8px', border: '1px solid #fdba74', marginBottom: '1.25rem' }}>
           <p style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#c2410c', marginTop: 0, marginBottom: '0.75rem' }}>
             Preguntas orientadoras para la reflexión grupal:
