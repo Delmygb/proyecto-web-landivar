@@ -1,219 +1,120 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 export default function EvaluacionForm() {
-  const [respuestas, setRespuestas] = useState({
-    p1: '',
-    p2: '',
-    p3: ''
-  });
+  const [respuestas, setRespuestas] = useState({ p1: '', p2: '', p3: '' });
+  const [resultadoFinal, setResultadoFinal] = useState(null);
 
-  const [resultado, setResultado] = useState(null);
-
-  const manejarCambio = (pregunta, valor) => {
-    setRespuestas({
-      ...respuestas,
-      [pregunta]: valor
-    });
-  };
-
-  const calificarQuiz = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    let puntajeObtenido = 0;
+    // Validamos las respuestas correctas de la evaluación formativa final
+    let aciertos = 0;
+    if (respuestas.p1 === 'b') aciertos++;
+    if (respuestas.p2 === 'a') aciertos++;
+    // Agrega más validaciones si tienes más preguntas
 
-    // Respuestas correctas oficiales
-    if (respuestas.p1 === 'b') puntajeObtenido += 33.3;
-    if (respuestas.p2 === 'a') puntajeObtenido += 33.3;
-    if (respuestas.p3 === 'c') puntajeObtenido += 33.4;
-
-    setResultado(Math.round(puntajeObtenido));
+    if (aciertos >= 2) {
+      setResultadoFinal({ 
+        ok: true, 
+        mensaje: '¡Felicitaciones! Ha aprobado la evaluación formativa final demostrando un dominio excelente de la ciudadanía digital.' 
+      });
+    } else {
+      setResultadoFinal({ 
+        ok: false, 
+        mensaje: 'Evaluación no aprobada. Le sugerimos revisar nuevamente los conceptos teóricos de las fases de la secuencia.' 
+      });
+    }
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      style={{
-        marginTop: '2rem',
-        padding: '1.5rem',
-        backgroundColor: '#ffffff',
-        borderRadius: '12px',
-        border: '1px solid #e2e8f0',
-        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)'
-      }}
-    >
-      <h3 style={{ color: '#31105c', marginTop: 0, marginBottom: '0.5rem', fontSize: '1.25rem', fontWeight: '700' }}>
-        Evaluación Formativa Final (Quiz Interactivo)
-      </h3>
-      <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-        Responda correctamente cada una de las interrogantes sobre ciudadanía digital para comprobar su aprendizaje:
-      </p>
+    <div style={{ padding: '2rem', background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.03)', marginTop: '2rem', fontFamily: 'Arial, Helvetica, sans-serif' }}>
+      
+      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+        <h3 style={{ color: '#411c75', margin: '0 0 0.5rem 0', fontSize: '1.4rem', fontWeight: 'bold' }}>
+          Evaluación Formativa Final (Quiz Interactivo)
+        </h3>
+        <p style={{ color: '#475569', fontSize: '0.9rem', margin: 0, textAlign: 'justify', textAlignLast: 'center' }}>
+          Responda correctamente cada una de las interrogantes sobre ciudadanía digital para comprobar su aprendizaje:
+        </p>
+      </div>
 
-      <form onSubmit={calificarQuiz} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         
-        {/* Pregunta 1: Huella Digital */}
-        <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <p style={{ fontWeight: '600', color: '#1e293b', marginBottom: '10px', fontSize: '0.95rem' }}>
+        {/* Pregunta 1 */}
+        <div style={{ background: '#f8fafc', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+          <p style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#1e293b', marginTop: 0, marginBottom: '0.75rem', textAlign: 'justify' }}>
             1. ¿A qué se le denomina "Huella Digital" en internet?
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: '#475569' }}>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p1" 
-                value="a" 
-                checked={respuestas.p1 === 'a'} 
-                onChange={() => manejarCambio('p1', 'a')} 
-                required 
-              /> {' '}
-              A) A los virus informáticos que se instalan al navegar.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p1" value="a" onChange={(e) => setRespuestas({...respuestas, p1: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>A) A los virus informáticos que se instalan al navegar en equipos públicos o personales.</span>
             </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p1" 
-                value="b" 
-                checked={respuestas.p1 === 'b'} 
-                onChange={() => manejarCambio('p1', 'b')} 
-              /> {' '}
-              B) El rastro de datos, publicaciones e historiales que dejamos al navegar en la red.
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p1" value="b" onChange={(e) => setRespuestas({...respuestas, p1: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>B) El rastro de datos, publicaciones y historiales que dejamos al navegar en la red de forma permanente.</span>
             </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p1" 
-                value="c" 
-                checked={respuestas.p1 === 'c'} 
-                onChange={() => manejarCambio('p1', 'c')} 
-              /> {' '}
-              C) Una contraseña secreta para entrar al correo electrónico.
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p1" value="c" onChange={(e) => setRespuestas({...respuestas, p1: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>C) Una contraseña secreta para entrar al correo electrónico institucional.</span>
             </label>
           </div>
         </div>
 
-        {/* Pregunta 2: Relevancia de la Ciudadanía Digital */}
-        <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <p style={{ fontWeight: '600', color: '#1e293b', marginBottom: '10px', fontSize: '0.95rem' }}>
+        {/* Pregunta 2 */}
+        <div style={{ background: '#f8fafc', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+          <p style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#1e293b', marginTop: 0, marginBottom: '0.75rem', textAlign: 'justify' }}>
             2. ¿Cuál es la principal relevancia de practicar una adecuada Ciudadanía Digital?
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: '#475569' }}>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p2" 
-                value="a" 
-                checked={respuestas.p2 === 'a'} 
-                onChange={() => manejarCambio('p2', 'a')} 
-                required 
-              /> {' '}
-              A) Promover un comportamiento ético, seguro y responsable en el uso de la tecnología.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p2" value="a" onChange={(e) => setRespuestas({...respuestas, p2: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>A) Promover un comportamiento ético, seguro y responsable en el uso de la tecnología y convivencia virtual.</span>
             </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p2" 
-                value="b" 
-                checked={respuestas.p2 === 'b'} 
-                onChange={() => manejarCambio('p2', 'b')} 
-              /> {' '}
-              B) Aprender a programar videojuegos avanzados en formato web.
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p2" value="b" onChange={(e) => setRespuestas({...respuestas, p2: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>B) Aprender a programar videojuegos avanzados en formato web multiplataforma.</span>
             </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p2" 
-                value="c" 
-                checked={respuestas.p2 === 'c'} 
-                onChange={() => manejarCambio('p2', 'c')} 
-              /> {' '}
-              C) Navegar más rápido por redes sociales sin consumir datos móviles.
+            <label style={{ fontSize: '0.85rem', color: '#334155', cursor: 'pointer', textAlign: 'justify', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <input type="radio" name="p2" value="c" onChange={(e) => setRespuestas({...respuestas, p2: e.target.value})} style={{ marginTop: '2px' }} />
+              <span>C) Navegar más rápido por redes sociales sin consumir datos móviles del plan contratado.</span>
             </label>
           </div>
         </div>
 
-        {/* Pregunta 3: Prevención del Ciberbullying */}
-        <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <p style={{ fontWeight: '600', color: '#1e293b', marginBottom: '10px', fontSize: '0.95rem' }}>
-            3. ¿Qué acción debe realizar principalmente ante una situación de ciberacoso (ciberbullying)?
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: '#475569' }}>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p3" 
-                value="a" 
-                checked={respuestas.p3 === 'a'} 
-                onChange={() => manejarCambio('p3', 'a')} 
-                required 
-              /> {' '}
-              A) Responder con insultos en la misma publicación para defenderse.
-            </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p3" 
-                value="b" 
-                checked={respuestas.p3 === 'b'} 
-                onChange={() => manejarCambio('p3', 'b')} 
-              /> {' '}
-              B) Borrar todas mis cuentas de redes sociales y no volver a usar internet.
-            </label>
-            <label style={{ cursor: 'pointer' }}>
-              <input 
-                type="radio" 
-                name="p3" 
-                value="c" 
-                checked={respuestas.p3 === 'c'} 
-                onChange={() => manejarCambio('p3', 'c')} 
-              /> {' '}
-              C) Bloquear al agresor, guardar evidencias y comunicarlo a un docente o adulto responsable.
-            </label>
-          </div>
-        </div>
-
-        <motion.button
-          whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.98 }}
+        <button 
           type="submit"
           style={{
-            background: '#31105c',
+            background: '#411c75',
             color: '#ffffff',
             border: 'none',
-            padding: '12px 20px',
-            borderRadius: '8px',
-            fontWeight: '600',
+            padding: '10px 20px',
+            borderRadius: '6px',
+            fontWeight: 'bold',
             cursor: 'pointer',
-            fontSize: '0.95rem',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            fontSize: '0.9rem',
+            alignSelf: 'flex-start',
+            fontFamily: 'Arial, sans-serif'
           }}
         >
-          Enviar Evaluación y Calcular Punteo
-        </motion.button>
+          Enviar Evaluaciones Finales
+        </button>
       </form>
 
-      {resultado !== null && (
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          style={{
-            marginTop: '1.25rem',
-            padding: '1rem',
-            borderRadius: '8px',
-            backgroundColor: resultado >= 70 ? '#f0fdf4' : '#fef2f2',
-            border: resultado >= 70 ? '1px solid #bbf7d0' : '1px solid #fecaca',
-            textAlign: 'center'
-          }}
-        >
-          <h4 style={{ margin: '0 0 5px 0', color: resultado >= 70 ? '#166534' : '#991b1b', fontSize: '1.1rem' }}>
-            {resultado >= 70 ? '¡Felicitaciones, ha aprobado el quiz!' : 'Debe repasar los conceptos de ciudadanía digital.'}
-          </h4>
-          <p style={{ margin: 0, fontSize: '1rem', fontWeight: '700', color: '#1e293b' }}>
-            Punteo obtenido: {resultado} / 100 puntos
-          </p>
-        </motion.div>
+      {resultadoFinal && (
+        <div style={{
+          marginTop: '1.25rem',
+          padding: '12px',
+          borderRadius: '6px',
+          background: resultadoFinal.ok ? '#f0fdf4' : '#fef2f2',
+          border: resultadoFinal.ok ? '1px solid #bbf7d0' : '1px solid #fecaca',
+          color: resultadoFinal.ok ? '#166534' : '#991b1b',
+          fontSize: '0.85rem',
+          textAlign: 'justify'
+        }}>
+          {resultadoFinal.mensaje}
+        </div>
       )}
-    </motion.section>
+
+    </div>
   );
 }
